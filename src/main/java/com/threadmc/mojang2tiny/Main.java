@@ -8,6 +8,10 @@ import java.io.*;
 import java.util.concurrent.Callable;
 import java.util.List;
 
+/**
+ * Main entry point for mojang2tiny. Can be used as a CLI (via main method)
+ * or as a library via the static convert() method.
+ */
 @Command(
         name = "mojang2tiny",
         mixinStandardHelpOptions = true,
@@ -44,12 +48,22 @@ public class Main implements Callable<Integer> {
         return 0;
     }
 
+    /**
+     * CLI entry point. Use this method to run mojang2tiny from the command line.
+     * @param args Command line arguments
+     */
     public static void main(String[] args) {
         int exitCode = new CommandLine(new Main()).execute(args);
         System.exit(exitCode);
     }
 
-    // API for programmatic use
+    /**
+     * Programmatic API for converting mappings. Use this method to invoke the conversion from Java code.
+     * @param intermediaryFile Intermediary mapping file
+     * @param mappingFiles List of Mojang mapping files
+     * @param outputDir Output directory for Tiny mappings
+     * @throws Exception if an error occurs during conversion
+     */
     public static void convert(File intermediaryFile, List<File> mappingFiles, File outputDir) throws Exception {
         Intermediary intermediary;
         try (InputStream in = new FileInputStream(intermediaryFile)) {
