@@ -36,12 +36,14 @@ java -jar build/libs/mojang2tiny-1.1.0.jar \
   -i <intermediary.tiny> \
   -m <mappings.txt> \
   -o <output-directory>
+  -t v2
 ```
 
 #### Arguments
 - `-i`, `--intermediary` — Path to the intermediary mapping file (Tiny format)
 - `-m`, `--mappings` — Mojang mapping file to convert
 - `-o`, `--output-dir` — Output directory for the generated Tiny file
+- `-t`, `--tiny-version` — Tiny version to use (default: `v2`, options: `v1`, `v2`)
 
 ### Example (CLI)
 
@@ -50,6 +52,7 @@ java -jar build/libs/mojang2tiny-1.1.0.jar \
   -i intermediary.tiny \
   -m mojang-mappings.txt \
   -o output/
+  -t v2
 ```
 
 ### Use as a Java Library (API)
@@ -66,7 +69,9 @@ public class Example {
         File intermediary = new File("intermediary.tiny");
         File mappings = new File("mojang-mappings.txt");
         File outputDir = new File("output");
-        Main.convert(intermediary, mappings, outputDir);
+        String tinyVersion = "v2"; // or "v1"
+        
+        Main.convert(intermediary, mappings, outputDir, tinyVersion);
     }
 }
 ```

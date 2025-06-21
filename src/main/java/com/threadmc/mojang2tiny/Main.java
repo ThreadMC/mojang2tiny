@@ -63,8 +63,9 @@ public class Main implements Callable<Integer> {
     /**
      * Programmatic API for converting mappings. Use this method to invoke the conversion from Java code.
      * @param intermediaryFile Intermediary mapping file
-     * @param mappingFiles List of Mojang mapping files
-     * @param outputDir Output directory for Tiny mappings
+     * @param mappingFile Mojang mapping file
+     * @param outputDir Output directory for Tiny mapping file
+     * @param tinyVersion Tiny format version (v1 or v2)
      * @throws Exception if an error occurs during conversion
      */
     public static void convert(File intermediaryFile, File mappingFile, File outputDir, String tinyVersion) throws Exception {
