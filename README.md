@@ -32,21 +32,21 @@ You can either **download the latest jar from the [Releases tab](https://github.
 After building (or downloading), you can run the tool from the command line:
 
 ```sh
-java -jar build/libs/mojang2tiny-1.0.0.jar \
+java -jar build/libs/mojang2tiny-1.1.0.jar \
   -i <intermediary.tiny> \
-  -m <mappings1.txt> [<mappings2.txt> ...] \
+  -m <mappings.txt> \
   -o <output-directory>
 ```
 
 #### Arguments
 - `-i`, `--intermediary` — Path to the intermediary mapping file (Tiny format)
-- `-m`, `--mappings` — One or more Mojang mapping files to convert
-- `-o`, `--output-dir` — Output directory for the generated Tiny files
+- `-m`, `--mappings` — Mojang mapping file to convert
+- `-o`, `--output-dir` — Output directory for the generated Tiny file
 
 ### Example (CLI)
 
 ```sh
-java -jar build/libs/mojang2tiny-1.0.0.jar \
+java -jar build/libs/mojang2tiny-1.1.0.jar \
   -i intermediary.tiny \
   -m mojang-mappings.txt \
   -o output/
@@ -64,9 +64,9 @@ import java.util.Arrays;
 public class Example {
     public static void main(String[] args) throws Exception {
         File intermediary = new File("intermediary.tiny");
-        File mapping1 = new File("mojang-mappings.txt");
+        File mappings = new File("mojang-mappings.txt");
         File outputDir = new File("output");
-        Main.convert(intermediary, Arrays.asList(mapping1), outputDir);
+        Main.convert(intermediary, mappings, outputDir);
     }
 }
 ```

@@ -34,7 +34,7 @@ public class Intermediary {
                     entries.add(new IntermediaryEntry.MethodEntry(className, sig, split[3], split[4]));
                     break;
                 default:
-                    throw new IOException("Syntax error at: " + line);
+                    throw new IOException("[Mojang2Tiny] Syntax error at: " + line);
             }
         }
         return new Intermediary(entries);

@@ -20,7 +20,7 @@ public class JvmSignature {
 
     public static JvmSignature fromJvmSig(String s) {
         StringBuilder sb = new StringBuilder(s);
-        if (sb.charAt(0) != '(') throw new IllegalArgumentException("Expected '('");
+        if (sb.charAt(0) != '(') throw new IllegalArgumentException("[Mojang2Tiny] Expected '('");
         sb.deleteCharAt(0);
         List<JvmType> params = new ArrayList<>();
         while (sb.charAt(0) != ')') {
@@ -28,7 +28,7 @@ public class JvmSignature {
         }
         sb.deleteCharAt(0);
         JvmType result = JvmType.read(sb);
-        if (sb.length() != 0) throw new IllegalArgumentException("Expected end of signature");
+        if (sb.length() != 0) throw new IllegalArgumentException("[Mojang2Tiny] Expected end of signature");
         return new JvmSignature(params, result);
     }
 

@@ -41,7 +41,7 @@ public abstract class JvmType {
                 return new ClassType(className);
             }
             case '[': return new ArrayType(read(s));
-            default: throw new IllegalArgumentException("Malformed JVM type: " + first);
+            default: throw new IllegalArgumentException("[Mojang2Tiny] Malformed JVM type: " + first);
         }
     }
 

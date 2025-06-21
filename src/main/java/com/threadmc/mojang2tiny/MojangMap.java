@@ -47,7 +47,7 @@ public class MojangMap {
                 entries.add(new MojangMapEntry.MethodEntry(lastDeobfClass, lastObfClass, JvmSignature.fromReadable(deobfType, deobfParams), deobfName, obfName));
                 continue;
             }
-            throw new IOException("Syntax error, ignoring: " + line);
+            throw new IOException("[Mojang2Tiny] Syntax error, ignoring: " + line);
         }
         return new MojangMap(entries);
     }
