@@ -1,0 +1,8 @@
+*.mapping
+*.tiny
+client.txt
+server.txt
+bin/
+build/
+.gradle/
+gradle/
